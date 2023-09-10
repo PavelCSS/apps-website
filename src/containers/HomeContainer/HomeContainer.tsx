@@ -54,34 +54,34 @@ export const HomeContainer: FC<HomeContainerProps> = ({ pageTitle }) => {
         <Grid container spacing={3}>
           {apps.map(({ id, name, description, logo }) => (
             <Grid md={6} item key={name}>
-              <Paper
-                component={Box}
-                display={"grid"}
-                gridTemplateColumns={"130px minmax(200px, 1fr)"}
-                gridGap={24}
-                elevation={2}
-                padding={2}
-              >
-                <Box display={"flex"} flexDirection={"column"} gridGap={24}>
-                  <img alt={name} src={logo} title={name} />
+              <Paper elevation={2}>
+                <Box
+                  display={"grid"}
+                  gridTemplateColumns={"130px minmax(200px, 1fr)"}
+                  gridGap={24}
+                  padding={2}
+                >
+                  <Box display={"flex"} flexDirection={"column"} gridGap={24}>
+                    <img alt={name} src={logo} title={name} />
 
-                  <a
-                    href={`https://apps.apple.com/us/app/id${id}`}
-                    target={"_blank"}
-                    rel="noreferrer"
-                  >
-                    <img
-                      src={"/app-store.png"}
-                      alt={"Download from App Store"}
-                    />
-                  </a>
-                </Box>
+                    <a
+                      href={`https://apps.apple.com/us/app/id${id}`}
+                      target={"_blank"}
+                      rel="noreferrer"
+                    >
+                      <img
+                        src={"/app-store.png"}
+                        alt={"Download from App Store"}
+                      />
+                    </a>
+                  </Box>
 
-                <Box>
-                  <Typography gutterBottom variant="h4">
-                    <strong>{name}</strong>
-                  </Typography>
-                  <Typography color="textSecondary">{description}</Typography>
+                  <Box>
+                    <Typography gutterBottom variant="h4">
+                      <strong>{name}</strong>
+                    </Typography>
+                    <Typography color="textSecondary">{description}</Typography>
+                  </Box>
                 </Box>
               </Paper>
             </Grid>
