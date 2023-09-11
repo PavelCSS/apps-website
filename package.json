@@ -8,6 +8,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build"
   },
+  "engines": {
+    "node": "16.x"
+  },
   "dependencies": {
     "@material-ui/core": "4.11.4",
     "immutable": "4.0.0-rc.12",
