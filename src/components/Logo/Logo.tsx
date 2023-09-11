@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import styled from "styled-components";
-import { Link } from "@toxic/navigation";
 
+import { Link } from "../Link";
 import { indexRoute } from "../../routes";
 import { LogoVariant } from "../../enums";
 import logoImage from "./logo.svg";
@@ -20,7 +20,7 @@ export const Logo = styled<FC<LogoProps>>(
         src={variant === LogoVariant.Page ? logoImage : logo2Image}
         alt={"ZiBY Apps"}
         width={width}
-        style={{ maxHeight: height || variant === LogoVariant.Page ? 300 : 56 }}
+        style={{ maxHeight: height || variant === LogoVariant.Page ? 200 : 56 }}
       />
     </Link>
   )

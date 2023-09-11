@@ -1,4 +1,4 @@
-import { ThemeProviderProps } from "@toxic/ui";
+import { ThemeProviderProps } from "./components";
 
 declare module "@material-ui/core/styles/createPalette" {
   interface Palette {

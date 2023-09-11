@@ -1,9 +1,8 @@
 import React, { FC } from "react";
-import { AppView } from "@toxic/backoffice-ui";
 import { useTitle } from "react-use";
 import { Box, Divider, Typography } from "@material-ui/core";
 
-import { Logo } from "../../components";
+import { AppView, Logo } from "../../components";
 
 type PrivacyPolicyContainerProps = {
   title: string;

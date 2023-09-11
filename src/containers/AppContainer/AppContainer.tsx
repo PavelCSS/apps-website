@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { ErrorBoundary } from "@toxic/backoffice-ui";
-import { IRoute, Router } from "@toxic/navigation";
+import { IRoute } from "../../types";
+import { ErrorBoundary, Router } from "../../components";
 
 export type AppContainerProps = {
   routes: IRoute[];

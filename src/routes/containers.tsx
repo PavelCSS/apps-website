@@ -1,8 +1,7 @@
-import { bindContainerToRoute, IRoute } from "@toxic/navigation";
-
 import * as routes from "./";
-import { HomeContainer } from "../containers/HomeContainer";
-import { PrivacyPolicyContainer } from "../containers/PrivacyPolicyContainer";
+import { IRoute } from "../types";
+import { bindContainerToRoute } from "../utils";
+import { HomeContainer, PrivacyPolicyContainer } from "../containers";
 
 export const containers: IRoute[] = [
   bindContainerToRoute(routes.indexRoute, HomeContainer),

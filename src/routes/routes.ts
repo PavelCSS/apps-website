@@ -1,4 +1,4 @@
-import { createRoute } from "@toxic/navigation";
+import { createRoute } from "../utils";
 
 export const indexRoute = createRoute("/", {
   title: "ZiBY Apps",

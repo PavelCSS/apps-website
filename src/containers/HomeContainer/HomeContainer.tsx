@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import { AppView } from "@toxic/backoffice-ui";
 import { useTitle } from "react-use";
 import {
   Box,
@@ -9,8 +8,8 @@ import {
   Paper,
   Typography,
 } from "@material-ui/core";
-import { Logo } from "../../components";
 import { LogoVariant } from "../../enums";
+import { AppView, Logo } from "../../components";
 
 type HomeContainerProps = {
   pageTitle: string;
@@ -35,10 +34,24 @@ export const HomeContainer: FC<HomeContainerProps> = ({ pageTitle }) => {
         "This app provides the ultimate gaming experience. You no longer have to waste time shuffling cards or choosing the next card - DeckKeeper does it all automatically.",
       logo: "/logos/DeckKeeper.png",
     },
+    {
+      id: "1597079749",
+      name: "ABColors – baby learning",
+      description:
+        "This application will help your kid learn colors by choosing them and listening to their names, as well as the kid can easily test their knowledge in the game where you need to find a color.",
+      logo: "/logos/ABColors.png",
+    },
+    {
+      id: "1638628911",
+      name: "ABC Numbers – baby learning",
+      description:
+        "This application will help your kid learn numbers by choosing them and listening to their names, as well as the kid can easily test their knowledge in the game where you need to find a number.",
+      logo: "/logos/ABC-Numbers.png",
+    },
   ];
 
   return (
-    <AppView>
+    <AppView overflow={"auto"}>
       <Box
         py={5}
         px={3}
@@ -50,11 +63,11 @@ export const HomeContainer: FC<HomeContainerProps> = ({ pageTitle }) => {
         <Logo variant={LogoVariant.Page} />
       </Box>
 
-      <Box overflow={"auto"} pt={5} pb={10} px={3} maxWidth={1200} mx={"auto"}>
+      <Box pt={5} pb={10} px={3} maxWidth={1200} mx={"auto"}>
         <Grid container spacing={3}>
           {apps.map(({ id, name, description, logo }) => (
-            <Grid md={6} item key={name}>
-              <Paper elevation={2}>
+            <Grid md={6} item key={id}>
+              <Paper elevation={3}>
                 <Box
                   display={"grid"}
                   gridTemplateColumns={"130px minmax(200px, 1fr)"}
