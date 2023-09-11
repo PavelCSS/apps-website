@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { useTitle } from 'react-use';
-import { Box, Button, Divider, Grid, Hidden, Paper, Typography } from '@material-ui/core';
+import { Avatar, Box, Button, Divider, Grid, Hidden, Paper, Typography } from '@material-ui/core';
 import { LogoVariant } from '../../enums';
-import { AppView, Link, Logo } from '../../components';
+import { Link, Logo } from '../../components';
 import {
   ABCNumbersPrivacyPolicyRoute,
   ABColorsPrivacyPolicyRoute,
@@ -53,7 +53,7 @@ export const HomeContainer: FC<HomeContainerProps> = ({ pageTitle }) => {
   ];
 
   return (
-    <AppView overflow={'auto'}>
+    <>
       <Box py={5} px={3} bgcolor={'#444444'} color={'#fff'} display={'flex'} justifyContent={'center'}>
         <Logo variant={LogoVariant.Page} />
       </Box>
@@ -65,13 +65,18 @@ export const HomeContainer: FC<HomeContainerProps> = ({ pageTitle }) => {
               <Paper elevation={3}>
                 <Box display={'flex'} alignItems={'start'} gridGap={24} pt={2} px={2}>
                   <Hidden only={'xs'}>
-                    <img alt={name} src={logo} title={name} width={130} />
+                    <img alt={name} src={logo} width={130} />
                   </Hidden>
 
-                  <Box>
-                    <Typography gutterBottom variant="h5">
-                      <strong>{name}</strong>
-                    </Typography>
+                  <Box display={'flex'} flexDirection={'column'} gridGap={16}>
+                    <Box display={'flex'} alignItems={'center'} gridGap={16}>
+                      <Hidden smUp>
+                        <Avatar variant="rounded" alt={name} src={logo} />
+                      </Hidden>
+                      <Typography variant="h5">
+                        <strong>{name}</strong>
+                      </Typography>
+                    </Box>
                     <Typography color="textSecondary">{description}</Typography>
                   </Box>
                 </Box>
@@ -103,6 +108,6 @@ export const HomeContainer: FC<HomeContainerProps> = ({ pageTitle }) => {
           </Button>
         </Box>
       </Box>
-    </AppView>
+    </>
   );
 };

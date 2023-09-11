@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { useTitle } from 'react-use';
 import { Box, Typography } from '@material-ui/core';
 
-import { AppView, Logo } from '../../components';
+import { Logo } from '../../components';
 
 type PrivacyPolicyContainerProps = {
   title: string;
@@ -14,19 +14,19 @@ export const PrivacyPolicyContainer: FC<PrivacyPolicyContainerProps> = ({ title,
   useTitle(pageTitle);
 
   return (
-    <AppView>
-      <Box py={3} px={3} bgcolor={'#444444'} color={'#fff'}>
+    <>
+      <Box py={3} px={3} bgcolor={'#444444'} color={'#fff'} position={'sticky'} top={0}>
         <Logo />
       </Box>
 
-      <Box flex={1} overflow={'auto'} px={3}>
-        <Box mt={5}>
+      <Box px={3} py={5}>
+        <Box>
           <Typography variant={'h3'} align={'center'}>
             <strong>{title} Privacy Policy</strong>
           </Typography>
         </Box>
 
-        <Box my={5} mx={'auto'} display={'flex'} flexDirection={'column'} gridGap={16} maxWidth={800}>
+        <Box mt={5} mx={'auto'} display={'flex'} flexDirection={'column'} gridGap={16} maxWidth={800}>
           <Typography>
             Yashin Pavlo built the {title} app as a Freemium app. This SERVICE is provided by Yashin Pavlo at no cost
             and is intended for use as is.
@@ -142,6 +142,6 @@ export const PrivacyPolicyContainer: FC<PrivacyPolicyContainerProps> = ({ title,
           </Typography>
         </Box>
       </Box>
-    </AppView>
+    </>
   );
 };
