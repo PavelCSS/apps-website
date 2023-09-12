@@ -1,11 +1,12 @@
-import React, { ComponentType } from "react";
-import { HashRouter, Route, Switch } from "react-router-dom";
-import { isFunction } from "lodash-es";
-import { IRouterProps } from "../../types";
+import React, { ComponentType } from 'react';
+import { HashRouter, Route, Switch } from 'react-router-dom';
+import { isFunction } from 'lodash-es';
 
-import { DefaultNotFound } from "./DefaultNotFound";
-import { DefaultPermissionsDenied } from "./DefaultPermissionsDenied";
-import { ThemeProvider } from "../ThemeProvider";
+import { ScrollToTop } from '../ScrollToTop';
+import { IRouterProps } from '../../types';
+import { ThemeProvider } from '../ThemeProvider';
+import { DefaultNotFound } from './DefaultNotFound';
+import { DefaultPermissionsDenied } from './DefaultPermissionsDenied';
 
 export const Router: ComponentType<IRouterProps> = ({
   routes,
@@ -14,10 +15,10 @@ export const Router: ComponentType<IRouterProps> = ({
   children,
 }) => (
   <HashRouter>
-    <>
+    <ScrollToTop>
       <Switch>
         {routes
-          .filter((route) => !route.type)
+          .filter(route => !route.type)
           .map((route, index) => {
             const { checkPermissions, theme, component, path, ...rest } = route;
 
@@ -33,7 +34,7 @@ export const Router: ComponentType<IRouterProps> = ({
                 exact
                 strict
                 path={path}
-                render={(props) =>
+                render={props =>
                   theme ? (
                     <ThemeProvider theme={theme} isRoot={false}>
                       <RouteComponent {...props} {...rest} />
@@ -50,6 +51,6 @@ export const Router: ComponentType<IRouterProps> = ({
       </Switch>
 
       {children}
-    </>
+    </ScrollToTop>
   </HashRouter>
 );

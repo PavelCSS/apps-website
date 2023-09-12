@@ -1,14 +1,11 @@
 import React, { FC } from 'react';
 import { useTitle } from 'react-use';
 import { Avatar, Box, Button, Divider, Grid, Hidden, Paper, Typography } from '@material-ui/core';
-import { LogoVariant } from '../../enums';
+
+import { apps } from '../../apps';
 import { Link, Logo } from '../../components';
-import {
-  ABCNumbersPrivacyPolicyRoute,
-  ABColorsPrivacyPolicyRoute,
-  deckKeeperPrivacyPolicyRoute,
-  learningTogetherPrivacyPolicyRoute,
-} from '../../routes';
+import { LogoVariant } from '../../enums';
+import { privacyPolicyRoute } from '../../routes';
 
 type HomeContainerProps = {
   pageTitle: string;
@@ -16,41 +13,6 @@ type HomeContainerProps = {
 
 export const HomeContainer: FC<HomeContainerProps> = ({ pageTitle }) => {
   useTitle(pageTitle);
-
-  const apps = [
-    {
-      id: '6455684710',
-      name: 'Learning together',
-      description:
-        'Your baby will be able to explore a variety of colors, letters, numbers and shapes by selecting them on the screen while listening to their names.',
-      logo: '/logos/learning-together.png',
-      privacyPolicyRoute: learningTogetherPrivacyPolicyRoute,
-    },
-    {
-      id: '6456039757',
-      name: 'DeckKeeper',
-      description:
-        'This app provides the ultimate gaming experience. You no longer have to waste time shuffling cards or choosing the next card - DeckKeeper does it all automatically.',
-      logo: '/logos/DeckKeeper.png',
-      privacyPolicyRoute: deckKeeperPrivacyPolicyRoute,
-    },
-    {
-      id: '1597079749',
-      name: 'ABColors',
-      description:
-        'This application will help your kid learn colors by choosing them and listening to their names, as well as the kid can easily test their knowledge in the game where you need to find a color.',
-      logo: '/logos/ABColors.png',
-      privacyPolicyRoute: ABColorsPrivacyPolicyRoute,
-    },
-    {
-      id: '1638628911',
-      name: 'ABC Numbers',
-      description:
-        'This application will help your kid learn numbers by choosing them and listening to their names, as well as the kid can easily test their knowledge in the game where you need to find a number.',
-      logo: '/logos/ABC-Numbers.png',
-      privacyPolicyRoute: ABCNumbersPrivacyPolicyRoute,
-    },
-  ];
 
   return (
     <>
@@ -60,7 +22,7 @@ export const HomeContainer: FC<HomeContainerProps> = ({ pageTitle }) => {
 
       <Box pt={5} pb={10} px={3} maxWidth={1200} mx={'auto'}>
         <Grid container spacing={3}>
-          {apps.map(({ id, name, description, logo, privacyPolicyRoute }) => (
+          {apps.map(({ id, name, description, logo }) => (
             <Grid md={6} item key={id}>
               <Paper elevation={3}>
                 <Box display={'flex'} alignItems={'start'} gridGap={24} pt={2} px={2}>
@@ -86,7 +48,9 @@ export const HomeContainer: FC<HomeContainerProps> = ({ pageTitle }) => {
                     <img src={'/app-store.png'} alt={'Download from App Store'} width={130} />
                   </a>
 
-                  <Link route={privacyPolicyRoute}>[ Privacy Policy ]</Link>
+                  <Link route={privacyPolicyRoute} query={{ appId: id }}>
+                    [ Privacy Policy ]
+                  </Link>
                 </Box>
               </Paper>
             </Grid>

@@ -3,15 +3,19 @@ import { useTitle } from 'react-use';
 import { Box, Typography } from '@material-ui/core';
 
 import { Logo } from '../../components';
+import { apps } from '../../apps';
+import { useRawQuery } from '../../hooks';
 
 type PrivacyPolicyContainerProps = {
   title: string;
   pageTitle: string;
-  withAdmob: boolean;
 };
 
-export const PrivacyPolicyContainer: FC<PrivacyPolicyContainerProps> = ({ title, pageTitle, withAdmob }) => {
+export const PrivacyPolicyContainer: FC<PrivacyPolicyContainerProps> = ({ pageTitle }) => {
   useTitle(pageTitle);
+
+  const { appId } = useRawQuery();
+  const app = apps.find(v => v.id === appId);
 
   return (
     <>
@@ -22,14 +26,14 @@ export const PrivacyPolicyContainer: FC<PrivacyPolicyContainerProps> = ({ title,
       <Box px={3} py={5}>
         <Box>
           <Typography variant={'h3'} align={'center'}>
-            <strong>{title} Privacy Policy</strong>
+            <strong>{app?.name} Privacy Policy</strong>
           </Typography>
         </Box>
 
         <Box mt={5} mx={'auto'} display={'flex'} flexDirection={'column'} gridGap={16} maxWidth={800}>
           <Typography>
-            Yashin Pavlo built the {title} app as a Freemium app. This SERVICE is provided by Yashin Pavlo at no cost
-            and is intended for use as is.
+            Yashin Pavlo built the {app?.name} app as a Freemium app. This SERVICE is provided by Yashin Pavlo at no
+            cost and is intended for use as is.
           </Typography>
           <Typography>
             This page is used to inform visitors regarding my policies with the collection, use, and disclosure of
@@ -42,7 +46,7 @@ export const PrivacyPolicyContainer: FC<PrivacyPolicyContainerProps> = ({ title,
           </Typography>
           <Typography>
             The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which are
-            accessible at {title}
+            accessible at {app?.name}
             unless otherwise defined in this Privacy Policy.
           </Typography>
           <Typography variant={'h6'}>Information Collection and Use</Typography>
@@ -54,7 +58,7 @@ export const PrivacyPolicyContainer: FC<PrivacyPolicyContainerProps> = ({ title,
           <Typography>
             The app does use third-party services that may collect information used to identify you.
           </Typography>
-          {withAdmob ? (
+          {app?.withAdmob ? (
             <>
               <Typography>Link to the privacy policy of third-party service providers used by the app</Typography>
               <Box component={'ul'} my={0}>
