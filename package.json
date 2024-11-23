@@ -6,7 +6,8 @@
   "homepage": ".",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "server": "node server.js"
   },
   "engines": {
     "node": "16.x"
