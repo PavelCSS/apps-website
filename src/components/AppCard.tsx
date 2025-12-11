@@ -10,10 +10,18 @@ interface AppCardProps {
 const AppCard: React.FC<AppCardProps> = ({ app }) => {
     const { name, description, logo, appleId, googleId, id } = app;
 
+    // Helper to resolve paths with correct base URL (for GitHub Pages)
+    const getImagePath = (path: string) => {
+        if (path.startsWith('http')) return path;
+        const baseUrl = import.meta.env.BASE_URL;
+        const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+        return `${baseUrl}${cleanPath}`;
+    };
+
     return (
         <div className="app-card fade-in">
             <div className="app-logo-wrapper">
-                <img src={logo} alt={`${name} logo`} className="app-logo" />
+                <img src={getImagePath(logo)} alt={`${name} logo`} className="app-logo" />
             </div>
             <h3 className="app-name">{name}</h3>
             <p className="app-description">{description}</p>
@@ -27,7 +35,7 @@ const AppCard: React.FC<AppCardProps> = ({ app }) => {
                             rel="noopener noreferrer"
                             aria-label="Download on the App Store"
                         >
-                            <img src="/app-store.png" alt="Download on the App Store" className="store-badge" />
+                            <img src={getImagePath("/app-store.png")} alt="Download on the App Store" className="store-badge" />
                         </a>
                     )}
                     {googleId && (
@@ -37,7 +45,7 @@ const AppCard: React.FC<AppCardProps> = ({ app }) => {
                             rel="noopener noreferrer"
                             aria-label="Get it on Google Play"
                         >
-                            <img src="/google-play-store.png" alt="Get it on Google Play" className="store-badge" />
+                            <img src={getImagePath("/google-play-store.png")} alt="Get it on Google Play" className="store-badge" />
                         </a>
                     )}
                 </div>
