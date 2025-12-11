@@ -8,7 +8,9 @@ const Home: React.FC = () => {
             <header className="main-header fade-in">
                 <div className="header-content">
                     <div className="logo">Ziby Apps</div>
-                    {/* Add social links or contact here if needed */}
+                    <a href="mailto:yashin.ziby@icloud.com" style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', fontWeight: 600 }}>
+                        Contact
+                    </a>
                 </div>
             </header>
 
@@ -32,6 +34,9 @@ const Home: React.FC = () => {
                 </main>
 
                 <footer className="main-footer fade-in">
+                    <p style={{ marginBottom: '1rem' }}>
+                        Contact us: <a href="mailto:yashin.ziby@icloud.com" style={{ color: 'var(--accent-color)' }}>yashin.ziby@icloud.com</a>
+                    </p>
                     <p>&copy; {new Date().getFullYear()} Yashin Pavlo. All rights reserved.</p>
                 </footer>
             </div>
