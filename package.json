@@ -1,9 +1,9 @@
 {
-  "name": "apps-website",
+  "name": "ziby-apps.github.io",
   "private": true,
   "version": "2.0.0",
   "type": "module",
-  "homepage": "https://PavelCSS.github.io/apps-website",
+  "homepage": "https://ziby-apps.github.io",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
